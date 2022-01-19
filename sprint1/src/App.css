@@ -1,0 +1,236 @@
+.logo{
+ margin-left: 5px;
+  display: flex;
+  justify-content: start;
+
+}
+#titulologo{
+    color: black;
+}
+
+#bannerhome{
+  background-image: url('./components/assets/img/banner.jpg');
+  background-size: cover;
+}
+#bannercities{
+    background-image: url('./components/assets/img/banner2.jpg');
+    background-size: cover;
+  
+}
+.colorChange{
+  background-color: #fff;
+  margin-top: -1vh;
+  height: 11vh;
+  padding: 0;
+}
+.colorChange.navbar-dark .navbar-brand{
+  color: black;
+}
+.colorChange.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+  color: #AB5D1C;
+}
+#tituloBanner{
+  text-align: center ;
+  font-family:  "Wulkan Display Medium",serif;
+}
+
+#div1{
+  margin-top: 4vh;
+  margin-left: 10vh;
+background-color: #283a2c;
+}
+#text1{
+  color: white;
+  margin-top: 3vh;
+  margin-left: 3vh;
+  margin-right: 3vh;
+  margin-inline-end: 3vh;
+  font-size: larger;
+  text-align: center ;
+  font-family:  "Wulkan Display Medium",serif;
+}
+#granca{
+  margin-top: 5vh;
+  margin-left: 10vh;
+}
+#div2{
+  background-color: #AB5D1C;;
+  color: #283a2c; 
+  margin-left: 10vh;
+  font-family:  "Wulkan Display Medium",serif;
+}
+#div3{
+  margin-left: 10vh;
+background-color: #283a2c;
+}
+#text3{
+  color: white;
+  margin-top: 3vh;
+  margin-left: 3vh;
+  margin-right: 3vh;
+  margin-inline-end: 3vh;
+  font-size: larger;
+  text-align: center ;
+  font-family:  "Wulkan Display Medium",serif;
+}
+#tittlediv{
+  color: white;
+  margin-top: 5vh;
+  text-align: center;
+}
+#text2 {
+  color: #283a2c; 
+  margin-top: 5vh;
+  text-align: center;
+ 
+}
+#sub3 {
+  color: white; 
+  margin-top: 5vh;
+  text-align: center;
+  font-family:  "Wulkan Display Medium",serif;
+ 
+}
+#imgdiv1{
+  margin-left: 5vh;
+}
+#cardshome{
+  margin-top: 10vh;
+  margin-left: 5vh;
+  margin-right: 7vh;
+}
+.card-title{
+  color: #AB5D1C;
+  font-family:  "Wulkan Display Medium",serif;
+ 
+}
+#cardsCities{
+  margin-top: 10vh;
+  margin-left: 10vh;
+  margin-right: 10vh;
+  text-align: center;
+}
+.card{
+  overflow: hidden;
+  transition: all .4s ease-out;
+  box-shadow: rgb(0, 0, 0,0.2);
+}
+.card:hover{
+  transform: translateY(-15px);
+  box-shadow: 0 12px 16px rgb(0, 0, 0,0.2);
+
+}
+.btn.btn-primary {
+  background-color: #AB5D1C;
+  border-color: #AB5D1C;
+  color: white;
+  text-align: center;
+  text-align: center;
+}
+footer{
+  background-color: #283a2c;
+  color: #fff;
+    transition: color 0.2s linear;
+    font-family: "Wulkan Display Medium",serif;
+    margin-top: 5vh;
+    text-decoration: none;
+
+}
+#contacto{
+  margin-top: 5vh;
+  margin-left: 10vh;
+}
+
+#redes{
+  margin-top: 10vh;
+  display: flex;
+  justify-content: space-between;
+
+}
+h6{
+  color:#AB5D1C ;
+}
+h2{
+  margin-top: 10vh;
+  margin-left: 15vh;
+  margin-right: 15vh;
+  font-family: "Wulkan Display Medium",serif;
+  background-color: #283a2c;
+  text-align: center;
+  color: white;
+  font-size: medium;
+}
+h3{
+  margin-top: 5vh;
+  margin-left: 15vh;
+  margin-right: 15vh;
+  font-family: "Wulkan Display Medium",serif;
+  text-align: center;
+  color: white;
+  font-size: medium;
+}
+.col12{
+  margin-top: 10vh;
+}
+#mail{
+  color: #fff;
+  text-decoration: none;
+}
+#imgSingup{
+  margin-top: 5vh;
+  margin-left: 10 vh;
+  width: 82vh;
+  height: 80vh;
+}
+#imgSingin{
+  margin-top: 5vh;
+  margin-left: 10 vh;
+  width: 82vh;
+  height: 85vh;
+}
+
+.text-end{
+  margin-top: 8vh;
+  margin-right: 10vh;
+}
+.text-center {
+  text-align: center!important;
+  font-family: "Wulkan Display Medium",serif;
+  color: #AB5D1C;
+}
+#icons{
+  margin-top: 5vh;
+
+}
+h4{
+  color: #AB5D1C;
+  text-align: center;
+  font-family: "Wulkan Display Medium",serif;
+}
+#contentCities{
+  margin-top: 5vh;
+  margin-left: 10vh;
+  margin-right: 10vh;
+}
+ul{
+  color: #AB5D1C;
+  text-decoration: none;
+}
+#links{
+  color: #AB5D1C;
+  text-decoration: none;
+  padding: 2vh;
+}
+a:hover {
+    color: #283a2c;
+}
+.container{
+  margin-top: 10vh;
+}
+#barra{
+ margin-top: 4vh;
+}
+#lupa{
+  color: #283a2c;
+}
+
