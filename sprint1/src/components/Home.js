@@ -7,7 +7,7 @@ function Home() {
 
   return (
     <div>
-      <div id="bannerhome" className="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
+      <div id="bannerhome" className="banner-image vh-100 d-flex justify-content-center align-items-center">
         <div className="content text-center">
           <h1 id="tituloBanner" className="text-white">My Tinerary</h1>
           <h3 id="tituloBanner" className="text-white">Find your perfect trip, designed by insiders who know and love their cities!</h3>
@@ -20,4 +20,4 @@ function Home() {
     </div>
   )
 }
-export default Home;
+export default Home; 

@@ -9,8 +9,8 @@ function Signup (){
         <div>
             <div className="container">
                 <div className="row">
-                    <div className="col-6">
-                        <img id="imgSingup" src={london} /></div>
+                    <div className="col-sm-6 col-md-6 col-lg-6">
+                        <img id="imgSingup" src={london} className="img-fluid" /></div>
                     <div className="col-6">
                         <div className="text-end">
                             <img src={logo}  width={"40px"}/>

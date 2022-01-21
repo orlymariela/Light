@@ -9,8 +9,8 @@ function Signin (){
     return(
         <div>
             <div className="container">
-                <div className="row">
-                    <div className="col-6 col-md-6 col-lg-6">
+                <div className="row align-items-streches">
+                    <div className="col d-lg-block col-md-5 col-lg-5 col-xl-6">
                         <img id="imgSingin" src={nys} /></div>
                     <div className="col-6 col-md-6 col-lg-6">
                         <div className="text-end">
@@ -23,9 +23,9 @@ function Signin (){
                                 <input className="form-control" name="email"></input>
                             </div>
                         <div className="mb-4">
-                        <label for="inputPassword5" class="form-label">Password</label>
-                            <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock"></input>
-                           <div id="passwordHelpBlock" class="form-text">
+                        <label for="inputPassword5" className="form-label">Password</label>
+                            <input type="password" id="inputPassword5" className="form-control" aria-describedby="passwordHelpBlock"></input>
+                           <div id="passwordHelpBlock" className="form-text">
                                    Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
                             </div>
                             <LinkRouter to="/signup">

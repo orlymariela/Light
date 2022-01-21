@@ -19,8 +19,8 @@ function Navbar() {
 
 
     return (
-        <>
-            <nav id="menu" className={colorChange ? 'colorChange navbar fixed-top navbar-expand-lg navbar-dark p-md-3  colorChange' : 'navbar fixed-top navbar-expand-lg navbar-dark p-md-3'}>
+        <div>
+            <nav id="menu" className={colorChange ? 'colorChange navbar fixed-top navbar-expand-lg   colorChange' : 'navbar fixed-top navbar-expand-lg '}>
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#">
                         <img src={logo} width={"20px"} /><strong id="titulologo">My Tinerary</strong></a>
@@ -51,7 +51,7 @@ function Navbar() {
                     </div>
                 </div>
             </nav>
-        </>
+        </div>
 
 
     )

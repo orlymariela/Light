@@ -37,8 +37,8 @@ function CarouselSlide() {
         <div id="cardsCities" className="containter">
             <Carousel responsive={responsive}>
                 <div>
-                    <div className="card  h-100" style={{ width: "25rem", backgroundColor: "white" }}>
-                        <img src={florencia} class="card-img-top" width="200px" height="200px" />
+                    <div className="card md-4  h-100" style={{ width: "25rem", backgroundColor: "white" }}>
+                        <img src={florencia} className="card-img-top" width="200px" height="200px" />
                         <div className="card-body">
                             <h5 className="card-title">Florence</h5>
                             <LinkRouter to="/city" className="btn btn-primary">
@@ -48,8 +48,8 @@ function CarouselSlide() {
                     </div>
                 </div>
                 <div>
-                    <div className="card  h-100" style={{ width: "25rem", backgroundColor: "white" }}>
-                        <img src={tokio1} class="card-img-top" width="200px" height="200px" />
+                    <div className="card  md-4 h-100" style={{ width: "25rem", backgroundColor: "white" }}>
+                        <img src={tokio1} className="card-img-top" width="200px" height="200px" />
                         <div className="card-body">
                             <h5 className="card-title">Tokyo</h5>
 
@@ -59,7 +59,7 @@ function CarouselSlide() {
                         </div>
                     </div></div>
                 <div>
-                    <div className="card  h-100" style={{ width: "25rem", backgroundColor: "white" }}>
+                    <div className="card md-4 h-100" style={{ width: "25rem", backgroundColor: "white" }}>
                         <img src={ny} className="card-img-top" width="200px" height="200px" />
                         <div className="card-body">
                             <h5 className="card-title">New York</h5>
