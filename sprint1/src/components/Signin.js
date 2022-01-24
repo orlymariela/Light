@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "./assets/img/logo.png";
-import nys from "./assets/img/nys.jpg";
 import {Link as LinkRouter} from "react-router-dom"
 
 function Signin (){
@@ -10,9 +9,9 @@ function Signin (){
         <div>
             <div className="container">
                 <div className="row align-items-streches">
-                    <div className="col d-lg-block col-md-5 col-lg-5 col-xl-6">
-                        <img id="imgSingin" src={nys} /></div>
-                    <div className="col-6 col-md-6 col-lg-6">
+                    <div className="bg d-none d-lg-block col-md-5 col-lg-5">
+                        </div>
+                    <div className="col-md-7 col-lg-7">
                         <div className="text-end">
                             <img src={logo}  width={"40px"}/>
                         </div>
@@ -32,9 +31,6 @@ function Signin (){
                             Don't have an account? Sing Up
                             </LinkRouter>
                             
-                                
-                                
-                
                         </div>
                             <div className="d-grid">
                                 <button className="btn btn-primary">Sing in</button>

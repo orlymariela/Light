@@ -8,9 +8,6 @@
 #titulologo{
     color: black;
 }
-#menu{
-  
-}
 
 #bannerhome{
   display: flex;
@@ -25,6 +22,10 @@
     background-image: url('./components/assets/img/banner2.jpg');
     background-size: cover;
   
+}
+#bannercity{
+  background-image: url('./components/assets/img/florencia.jpg');
+  background-size: cover;
 }
 .colorChange{
   background-color: #fff;
@@ -199,11 +200,17 @@ h3{
   width: 82vh;
   height: 80vh;
 }
-#imgSingin{
-  margin-top: 5vh;
-  margin-left: 10 vh;
-  width: 82vh;
-  height: 85vh;
+.bg{
+  background-image: url('./components/assets/img/nys.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.bgg{
+  background-image: url('./components/assets/img/london.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 
@@ -252,4 +259,21 @@ a:hover {
 #lupa{
   color: #283a2c;
 }
+.list-group-item{
+  color: #AB5D1C;
+  font-family: "Wulkan Display Medium",serif;
+  font-size: medium;
 
+}
+#cardcity{
+  margin-top: 10vh;
+}
+
+#cardinteraciones{
+  display: flex;
+  justify-content: space-between;
+}
+.likes.btn.btn-transparency{
+  width: 18vh;
+  height: 5vh;
+}
