@@ -39,7 +39,7 @@ function City() {
                         <div className="row">
                         
                          <div className="col-10"></div>
-                        <div className="col-2">
+                        <div className="col-md-2 col-sm-1">
                         <Like/>
                         </div>
                        
