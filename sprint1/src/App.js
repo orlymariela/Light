@@ -9,8 +9,14 @@ import Cities from './components/Cities';
 import Signup from './components/Signup';
 import Carousel from 'react-multi-carousel';
 import City from "./components/City";
+import axios from "axios";
 
 function App() {
+  axios.get("https://restcountries.com/v3.1/all")
+  .then(response => {
+    console.log(response.data)
+
+  })
   return (
     <BrowserRouter>
       <Navbar />
