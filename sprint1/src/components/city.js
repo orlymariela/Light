@@ -1,53 +1,104 @@
-import React from "react";
-import Like from "../../src/components/Like";
-import { Link as LinkRouter } from "react-router-dom"
+import React, { useEffect, useState } from "react";
+import { useStateValue } from "../StateProvider";
+import { Link as LinkRouter, useParams } from "react-router-dom";
+import axios from "axios";
+import Itinerary from "./Itinerary";
+import country from "./assets/img/country.png";
+import continent from "./assets/img/continent.png";
+import currency from "./assets/img/currency.png";
+import denonym from "./assets/img/denonym.png";
+import language from "./assets/img/language.png";
+import region from "./assets/img/region.png";
 
 
 function City() {
-    return (
+    const [itineraries, setItineraries] = useState([])
+    const [{ cities }, dispatch] = useStateValue();
 
+    const { id } = useParams()
+    const cityselecter = cities.filter(city => city._id == id)
+    useEffect(() => {
+        cityselecter.map(city =>
+            axios.get(`http://localhost:4000/api/itinerary/${city.name}`)
+                .then(response => setItineraries(response.data.response.itinerary))
+        )
+    }, []);
+    console.log(itineraries)
+
+    return (
         <div>
-            <div id="bannercity" className="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
-                <div className="content text-center">
-                    <h1 id="tituloBanner" className="text-white">Florence</h1>
-                </div>
+            <img className="imgCity" src={process.env.PUBLIC_URL + `/cards/cities/${cityselecter[0].img}`} alt={cityselecter.name} />
+            <div className="content text-center">
+                <h1 id="tituloCity" className="text">{cityselecter[0].name}</h1>
+                <svg id="barra" className="block-itinerary-contributions__divider" width="116" height="6" viewBox="0 0 116 4" xmlns="http://www.w3.org/2000/svg"><path d="M116 1.5h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h6v1h2v-1zm-6 1H0v-1h2v1zM60 2a2 2 0 11-4 0 2 2 0 014 0z" fill="#FC6220" fillRule="nonzero"></path></svg>
             </div>
             <div>
-                <div id="cardcity" className="card col-12" >
-                    <div className="card-body">
-                        <h5 className="card-title text-center">Florence</h5>
-                        <p className="card-text">Florence, has a lot to offer.
-                            World capital of art; home to several art galleries, places with classic Italian architecture, and an abundance of high-end stores. Located north of the central region.
-                            Florence is the urban center where the Renaissance art movement originated in the second half of the 14th century, and is considered one of the world's cradles of art and architecture as well as one of the most beautiful cities in the world.</p>
-                    </div>
-                    <ul className="list-group list-group-flush">
-                        <li className="list-group-item"><strong>Country:</strong>  Italy</li>
-                        <li className="list-group-item"><strong>Currency:</strong>  Euro <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-currency-euro" viewBox="0 0 16 16">
-                            <path d="M4 9.42h1.063C5.4 12.323 7.317 14 10.34 14c.622 0 1.167-.068 1.659-.185v-1.3c-.484.119-1.045.17-1.659.17-2.1 0-3.455-1.198-3.775-3.264h4.017v-.928H6.497v-.936c0-.11 0-.219.008-.329h4.078v-.927H6.618c.388-1.898 1.719-2.985 3.723-2.985.614 0 1.175.05 1.659.177V2.194A6.617 6.617 0 0 0 10.341 2c-2.928 0-4.82 1.569-5.244 4.3H4v.928h1.01v1.265H4v.928z" />
-                        </svg></li>
-                        <li className="list-group-item"><strong>Language:</strong> Italian               
-                        </li>
-                    </ul>
-                    <div id="cardinteraciones"className="card-body">
-                        <div className="col-4">
-                        <a href="https://goo.gl/maps/bPLw2QiA6sCvCRZw8" className="card-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-geo-alt" viewBox="0 0 16 16">
-                            <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
-                            <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                        </svg>Maps</a> 
-                        </div>
-                        </div>
-                        <div className="row">
-                        
-                         <div className="col-10"></div>
-                        <div className="col-md-2 col-sm-1">
-                        <Like/>
-                        </div>
-                       
-                        <a href="#" className="card-link"></a>
+                <div id="divParraf" className="row">
+                    <div className="col-12">
+                        <p id="pCity">{cityselecter[0].description}</p>
                     </div>
                 </div>
+                <div id="divIcons">
+                 <div className="row">
+                    <div className="col-4">
+                      <img id="cityIcon" src={country} width="80px" height="80px" />
+                      <div className="row">
+                          <div className="col-12">
+                              <h7 id="textIcon">{cityselecter[0].country}</h7>
+                            </div> 
+                      </div>
+                    </div>
+                    <div className="col-4">
+                      <img id="cityIcon" src={continent} width="80px" height="80px" />
+                      <div className="row">
+                          <div className="col-12">
+                              <h7 id="textIcon">{cityselecter[0].continents}</h7>
+                            </div> 
+                      </div>
+                     </div>
+                    <div className="col-4">
+                         <img id="cityIcon" src={currency} width="80px" height="80px" />
+                         <div className="row">
+                          <div className="col-12">
+                              <h7 id="textIcon">{cityselecter[0].currency}</h7>
+                            </div> 
+                      </div>
+                    </div>
+                </div>
+                 <div className="row">
+                    <div className="col-4">
+                      <img id="cityIcon" src={language} width="80px" height="80px" />
+                      <div className="row">
+                          <div className="col-12">
+                              <h7 id="textIcon">{cityselecter[0].language}</h7>
+                            </div> 
+                      </div>
+                    </div>
+                    <div className="col-4">
+                      <img id="cityIcon" src={denonym} width="80px" height="80px" />
+                      <div className="row">
+                          <div className="col-12">
+                              <h7 id="textIcon">{cityselecter[0].demonym}</h7>
+                            </div> 
+                      </div>
+                     </div>
+                    <div className="col-4">
+                         <img id="cityIcon" src={region} width="80px" height="80px" />
+                         <div className="row">
+                          <div className="col-12">
+                              <h7 id="textIcon">{cityselecter[0].region}</h7>
+                            </div> 
+                      </div>
+                    </div>
+                </div>
+                </div>
+
+
             </div>
+
+            <Itinerary itineraries={itineraries} />
         </div>
+
 
 
     )

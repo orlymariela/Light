@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from "react";
+import { actionType } from './reducer';
+import { useStateValue } from './StateProvider';
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import './App.css';
 import Footer from './components/Footer';
@@ -12,20 +14,27 @@ import City from "./components/City";
 import axios from "axios";
 
 function App() {
-  axios.get("https://restcountries.com/v3.1/all")
-  .then(response => {
-    console.log(response.data)
+  const [{cities}, dispatch]=useStateValue()
+  useEffect(() => {
 
-  })
+    axios.get("http://localhost:4000/api/datos")
+      .then(response => {
+        dispatch({
+          type: actionType.CITIESDB,
+          cities: response.data.response.cities
+        })
+      })
+  }, [])
+
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
         <Route path="/" element={ <Home/>} />
-        <Route path="/cities" element={  <Cities/>} />
+        <Route path="/cities" element={  <Cities />} />
         <Route path="/signin" element={  <Signin/>} />
         <Route path="/signup" element={  <Signup/>} />
-        <Route path="/city" element={  <City/>} />
+        <Route path="/city/:id" element={  <City/>} />
      
      
 

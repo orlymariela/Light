@@ -1,8 +1,33 @@
 import React from "react";
 import logo from "./assets/img/logo.png";
-import {Link as LinkRouter} from "react-router-dom"
+import {Link as LinkRouter} from "react-router-dom";
+import axios from "axios"
 
 function Signin (){
+    async function loginUser(event) {
+        event.preventDefault()
+        const userData = {
+            email: event.target[0].value,
+            password: event.target[1].value
+
+        }
+
+        await axios.post("http://localhost:4000/api/signin", {userData}) //alert(response.data.response))
+            .then(response =>
+
+
+               displayMessages(response.data)
+
+            )
+        function displayMessages(data) {
+            if(!data.success){
+                console.log(alert(data.response))
+            }
+            else {console.log(data.response)}
+             
+        }
+
+    }
 
 
     return(
@@ -16,7 +41,7 @@ function Signin (){
                             <img src={logo}  width={"40px"}/>
                         </div>
                         <h3 className="fw-bold text-center py-5">Hi!</h3>
-                        <form action="#">
+                        <form action="#" onSubmit={loginUser}>
                         <div className="mb-4">
                                 <label for="email" className="form-label">E-mail</label>
                                 <input className="form-control" name="email"></input>
@@ -33,7 +58,7 @@ function Signin (){
                             
                         </div>
                             <div className="d-grid">
-                                <button className="btn btn-primary">Sing in</button>
+                                <button type="submit" className="btn btn-primary">Sing in</button>
                             </div>
                         </form>
                     </div>

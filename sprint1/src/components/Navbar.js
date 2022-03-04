@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import {Link as LinkRouter} from "react-router-dom";
-
 import logo from "./assets/img/logo.png"
-import Signin from "./Signin";
 
 
 function Navbar() {
