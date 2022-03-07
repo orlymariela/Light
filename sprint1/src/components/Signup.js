@@ -14,19 +14,20 @@ function Signup(event) {
             password: event.target[3].value,
 
         }
-        console.log(nuevoUsuario)
 
         await axios.post("http://localhost:4000/api/signup", {NuevoUsuario}) //alert(response.data.response))
-            .then(response =>{ displayMessages(response.data)
-            console.log(response)}
+            .then(response =>{ displayMessages(response.data)}
 
 
               
 
             )
         function displayMessages(data) {
-           if (data.succes === "falseVAL") {
+           if (data.success === "falseVAL") {
                data.response.error.details.map(error => alert(error.message))
+            }
+            else if (data.success==="true"){
+                console.log(data)
             }
         }
 

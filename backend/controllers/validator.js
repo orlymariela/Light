@@ -26,7 +26,7 @@ const validator = (req, res, next) => {
    
 const validation =Schema.validate(req.body.NuevoUsuario, {abortEarly:false}) //Abort early para mencionar todos los errores
 if (validation.error){
-    return res.json({succes:false, response:validation})
+    return res.json({success:false, response:validation})
 }
 next()
 }

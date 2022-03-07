@@ -2,7 +2,7 @@ const Router = require("express").Router();
 const datosController = require("../controllers/datoscontrollers") 
 const {ObtenerLosDatos , ObtenerItinerary}= datosController
 const usersController = require("../controllers/userscontroller")
-const {nuevoUsuario, accesoUsuario}= usersController
+const {nuevoUsuario, accesoUsuario, verifyEmail}= usersController
 const validator = require("../controllers/validator")
 
 
@@ -17,7 +17,10 @@ Router.route("/signup")
 .post(validator, nuevoUsuario),
 
 Router.route("/signin")
-.post(accesoUsuario)
+.post(accesoUsuario),
+
+Router.route("/verify/:uniqueText")
+.post(verifyEmail)
 module.exports = Router
 
 
