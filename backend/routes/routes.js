@@ -14,13 +14,13 @@ Router.route("/itinerary/:city")
 .get(ObtenerItinerary),
 
 Router.route("/signup")
-.post(validator, nuevoUsuario),
+.post(validator,nuevoUsuario),
 
 Router.route("/signin")
 .post(accesoUsuario),
 
 Router.route("/verify/:uniqueText")
-.post(verifyEmail)
+.get(verifyEmail)
 module.exports = Router
 
 

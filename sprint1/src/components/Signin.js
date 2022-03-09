@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./assets/img/logo.png";
 import {Link as LinkRouter} from "react-router-dom";
 import axios from "axios"
+import swal from "sweetalert";
 
 function Signin (){
     async function loginUser(event) {
@@ -16,14 +17,16 @@ function Signin (){
             .then(response =>
 
 
-               displayMessages(response.data)
+              // displayMessages(response.data)
+             displayMessages(response.data)
 
             )
         function displayMessages(data) {
             if(!data.success){
-                console.log(alert(data.response))
+                console.log(swal(data.error))
             }
-            else {console.log(data.response)}
+            else{console.log(data.response)}
+         
              
         }
 

@@ -19,6 +19,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.10",
     "nodemailer": "^6.7.2",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "react-facebook-login": "^4.1.1",
+    "react-swal": "^3.0.0"
   }
 }

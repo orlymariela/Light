@@ -1,12 +1,12 @@
 import React from "react";
 import logo from "./assets/img/logo.png";
 import axios from "axios";
+import swal from "sweetalert";
 
 function Signup(event) {
 
     async function nuevoUsuario(event) {
         event.preventDefault()
-        console.log(event)
         const NuevoUsuario = {
             firstname: event.target[0].value,
             lastname: event.target[1].value,
@@ -15,19 +15,22 @@ function Signup(event) {
 
         }
 
-        await axios.post("http://localhost:4000/api/signup", {NuevoUsuario}) //alert(response.data.response))
-            .then(response =>{ displayMessages(response.data)}
+        await axios.post("http://localhost:4000/api/signup", { NuevoUsuario })
+            .then(response => {
 
-
-              
-
+                displayMessages(response.data)
+            }
             )
         function displayMessages(data) {
-           if (data.success === "falseVAL") {
-               data.response.error.details.map(error => alert(error.message))
+            if (data.success === "falseVAL") {
+                console.log(data.response.error.details)
+                data.response.error.details.map(error => swal(error.message))
             }
-            else if (data.success==="true"){
-                console.log(data)
+            else if (data.success === "false") {
+                console.log(swal(data.response))
+            }
+            else if(data.success ==="true"){
+                console.log(swal(data.response))
             }
         }
 
@@ -49,11 +52,11 @@ function Signup(event) {
                         <form onSubmit={nuevoUsuario}>
                             <div className="row">
                                 <div className="col">
-                                <label for="exampleInputName" className="form-label">First Name</label>
+                                    <label for="exampleInputName" className="form-label">First Name</label>
                                     <input type="text" className="form-control" name="firstname" placeholder="First name" aria-label="First name"></input>
                                 </div>
                                 <div className="col">
-                                <label for="exampleInputLastName" className="form-label">Last Name</label>
+                                    <label for="exampleInputLastName" className="form-label">Last Name</label>
                                     <input type="text" className="form-control" name="lastname" placeholder="Last name" aria-label="Last name"></input>
                                 </div>
                             </div>
