@@ -360,4 +360,7 @@ a:hover {
   font-size: xx-large;
   font-weight: 500;
 }
+#linkUser{
+  border-radius: 100%;
+}
 

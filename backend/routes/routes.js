@@ -2,7 +2,7 @@ const Router = require("express").Router();
 const datosController = require("../controllers/datoscontrollers") 
 const {ObtenerLosDatos , ObtenerItinerary}= datosController
 const usersController = require("../controllers/userscontroller")
-const {nuevoUsuario, accesoUsuario, verifyEmail}= usersController
+const {nuevoUsuario, accesoUsuario, verifyEmail, cerrarSesion}= usersController
 const validator = require("../controllers/validator")
 
 
@@ -18,6 +18,9 @@ Router.route("/signup")
 
 Router.route("/signin")
 .post(accesoUsuario),
+
+Router.route("/signout")
+.post(cerrarSesion),
 
 Router.route("/verify/:uniqueText")
 .get(verifyEmail)

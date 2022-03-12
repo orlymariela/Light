@@ -12,6 +12,7 @@ function Signup(event) {
             lastname: event.target[1].value,
             email: event.target[2].value,
             password: event.target[3].value,
+            from:"signup"
 
         }
 
@@ -22,15 +23,15 @@ function Signup(event) {
             }
             )
         function displayMessages(data) {
-            if (data.success === "falseVAL") {
-                console.log(data.response.error.details)
+            console.log(data)
+            if (data.success === "falseVal") {
                 data.response.error.details.map(error => swal(error.message))
             }
-            else if (data.success === "false") {
-                console.log(swal(data.response))
+            else if (data.success === false) {
+                swal(data.response)
             }
-            else if(data.success ==="true"){
-                console.log(swal(data.response))
+            else if(data.success ===true){
+              swal(data.response)
             }
         }
 

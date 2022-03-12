@@ -3,9 +3,14 @@ import logo from "./assets/img/logo.png";
 import {Link as LinkRouter} from "react-router-dom";
 import axios from "axios"
 import swal from "sweetalert";
+import {actionType,} from "../reducer";
+import { useStateValue } from '../StateProvider';
 
 function Signin (){
+    const [{cities}, dispatch]=useStateValue()
+
     async function loginUser(event) {
+       
         event.preventDefault()
         const userData = {
             email: event.target[0].value,
@@ -19,13 +24,24 @@ function Signin (){
 
               // displayMessages(response.data)
              displayMessages(response.data)
+             
 
             )
         function displayMessages(data) {
             if(!data.success){
-                console.log(swal(data.error))
+                swal({
+                    title: " Error",
+                    icon: "error",
+                    text: data.error,
+                    buttons: "OK"
+                })
+                
             }
-            else{console.log(data.response)}
+            else{ swal({
+                title: " Welcome",
+                icon: "success",
+                buttons: "OK"
+            })}
          
              
         }

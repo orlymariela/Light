@@ -3,7 +3,6 @@ const crypto = require("crypto")
 const User = require("../models/user")
 const bcryptjs = require("bcryptjs")
 const jwt = require("jsonwebtoken")
-const { constants } = require("os")
 
 
 async function sendEmail(email, uniqueText) {
@@ -66,7 +65,6 @@ const usersController = {
             const UsuarioExiste = await User.findOne({ email })
             
             if (UsuarioExiste) {
-                res.json({ success: "false", response: "User already exists, go to Sing In" })
                 if(from!=="signup"){
                    
                     const passwordHash= bcryptjs.hashSync(password, 10)
@@ -92,6 +90,7 @@ const usersController = {
                     password: passwordHash,
                     uniqueText, //busca la coincidencia del texto
                     emailVerify,
+                    connected: false,
                     from,
                 })
                 if(from!=="signup"){
@@ -135,7 +134,9 @@ const usersController = {
                             firstname: usuario.firstname,
                             lastname: usuario.lastname,
                             email: usuario.email,
+                            
                         }
+                        usuario.connected=true
                         await usuario.save()
                         res.json({ success: true, from: "controller", response: { token, datosUser } })
                     }
@@ -154,7 +155,13 @@ const usersController = {
         catch (error) { console.log(error); res.json({ success: false, response: null, error: error }) }
     },
 
-    //cerrarSesion: async (req,res)=>{}
+    cerrarSesion: async (req, res) => {
+        const email = req.body.email
+        const usuario = await User.findOne({ email })
+        usuario.connected = false
+        await usuario.save()
+        res.json({ success: true, response: "Log Out" })
+    }
 }
 module.exports = usersController;
 

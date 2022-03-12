@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import {Link as LinkRouter} from "react-router-dom";
+import { Link as LinkRouter } from "react-router-dom";
 import logo from "./assets/img/logo.png"
-
+import denonym from "./assets/img/denonym.png"
 
 function Navbar() {
     const [colorChange, setColorchange] = useState(false);
@@ -29,20 +29,21 @@ function Navbar() {
                         <div className="mx-auto"></div>
                         <ul className="navbar-nav">
                             <li className="nav-item md-auto">
-                               <LinkRouter id="links" to="/"> 
-                                 HOME
-                               </LinkRouter> 
-                            </li>
-                            <li className="nav-item">
-                               <LinkRouter id="links" to="/cities">
-                               CITIES
-                               </LinkRouter>
-                            
-                            </li>
-                            <li className="nav-item">
-                                <LinkRouter id="links" to="/signin">
-                                    SIGN IN
+                                <LinkRouter id="links" to="/">
+                                    HOME
                                 </LinkRouter>
+                            </li>
+                            <li className="nav-item">
+                                <LinkRouter id="links" to="/cities">
+                                    CITIES
+                                </LinkRouter>
+
+                            </li>
+                            <li className="nav-item">
+                            <LinkRouter to="/signin">
+                            <img id="linkUser" src={denonym} width={"20px"} />
+                                </LinkRouter>
+                                
                             </li>
                         </ul>
 
