@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./assets/img/logo.png";
 import axios from "axios";
 import swal from "sweetalert";
+import Facebook from "./Facebook";
 
 function Signup(event) {
 
@@ -74,6 +75,7 @@ function Signup(event) {
                                 <input type="checkbox" className="form-check-input" id="exampleCheck1"></input>
                                 <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
                             </div>
+                            <Facebook/>
                             <button type="submit" value="submit" className="btn btn-primary">SING UP</button>
                         </form>
                     </div>

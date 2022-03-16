@@ -4,7 +4,7 @@ const joi = require("joi")
 const validator = (req, res, next) => {
     console.log(req.body.NuevoUsuario)
     const Schema=joi.object({
-        firstname:joi.string().max(10).min(3).trim().pattern( new  RegExp("[a-zA-Z]")).required().messages({
+        firstname:joi.string().max(40).min(3).trim().pattern( new  RegExp("[a-zA-Z]")).required().messages({
             "string.min": "Name must contain min 3 characters",
             "string.empty": "The field first name cannot be empty"
         }),
