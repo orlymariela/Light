@@ -1,7 +1,7 @@
 export const initialState = {
     cities: [],
     itineraries: [],
-    user:[]
+    user:null
 
 }
 export const actionType = {

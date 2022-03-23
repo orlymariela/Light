@@ -73,10 +73,10 @@ const usersController = {
                     UsuarioExiste.from= from
                     UsuarioExiste.connected= false
                     UsuarioExiste.save()
-                    res.json({success:true, response:"Actualizamos tu signup para que lo realices con " + from})
+                    res.json({success:true, response:"We update your signup so that you can do it with " + from})
                 }
                 else{
-                    res.json({success:false, response:"El nombre del usuario ya está en uso"})
+                    res.json({success:false, response:"The username is already in use"})
                 }
             }
             else {
@@ -98,7 +98,7 @@ const usersController = {
                      NewUser.from= from
                      NewUser.connected= false
                      await NewUser.save()
-                     res.json({success:true,data:{NewUser},response:"Felicitaciones se ha creado tu usuario con "+from})
+                     res.json({success:true,data:{NewUser},response:"Congratulations, your user has been created with "+from})
                 }
                 else{
                     NewUser.emailVerify=false
@@ -121,7 +121,7 @@ const usersController = {
         try {
             const usuario = await User.findOne({ email })
             if (!usuario) {
-                res.json({ success: false, from: "controller", error: "usuario y/o contraseña incorrecto" })
+                res.json({ success: false, from: "controller", error: "Wrong username and/or password" })
 
             }
             else {
@@ -134,6 +134,7 @@ const usersController = {
                             firstname: usuario.firstname,
                             lastname: usuario.lastname,
                             email: usuario.email,
+                            id: usuario._id,
                             
                         }
                         usuario.connected=true
@@ -141,12 +142,12 @@ const usersController = {
                         res.json({ success: true, from: "controller", response: { token, datosUser } })
                     }
                     else {
-                        res.json({ success: false, from: "controller", error: "usuario y/o contraseña incorrecto" })
+                        res.json({ success: false, from: "controller", error: "Wrong username and/or password" })
                     }
 
                 }
                 else {
-                    res.json({ success: false, from: "controller", error: "Verifica tu email para validarte" })
+                    res.json({ success: false, from: "controller", error: "Check your email to validate yourself" })
                 }
 
             }

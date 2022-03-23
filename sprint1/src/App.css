@@ -364,3 +364,20 @@ a:hover {
   border-radius: 100%;
 }
 
+#imgComments{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-left: 15vh;
+  margin-top: 0;
+  
+  width: 10px;
+}
+.formComments{
+  width: 100%;
+}
+
+#cardItinerary{
+  margin-left: 45vh;
+  margin-top: 5vh;
+}

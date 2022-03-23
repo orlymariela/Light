@@ -9,6 +9,7 @@ import currency from "./assets/img/currency.png";
 import denonym from "./assets/img/denonym.png";
 import language from "./assets/img/language.png";
 import region from "./assets/img/region.png";
+import Comments from "./Comments";
 
 
 function City() {
@@ -97,6 +98,7 @@ function City() {
             </div>
 
             <Itinerary itineraries={itineraries} />
+           
         </div>
 
 

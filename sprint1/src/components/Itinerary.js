@@ -1,4 +1,6 @@
 import React from "react";
+import { Link as LinkRouter, useParams } from "react-router-dom";
+import Comments from "./Comments";
 
 function Itinerary(props) {
     console.log(props)
@@ -13,24 +15,31 @@ function Itinerary(props) {
             </div>
             {itinerary.map((itinerarie) => {
                 return (
-                    <div class="card mb-3" style={{ maxWidth: "540px" }}>
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img className="" src={process.env.PUBLIC_URL + `/cards/${itinerarie.img}`} alt={itinerarie.name} />
+                    <div id="cardItinerary" className="card mb-12" style={{ maxWidth: "550px" }}>
+                        <div className="row g-0">
+                            <div className="col-md-4">
+                                <img classNameName="" src={process.env.PUBLIC_URL + `/cards/${itinerarie.img}`} alt={itinerarie.name} />
                             </div>
                         </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">{itinerarie.name}</h5>
-                                <p class="card-text">{itinerarie.description}</p>
-                                <p class="card-text"><small class="text-muted">Time: {itinerarie.time}</small></p>
-                                <p class="card-text"><small class="text-muted">Price: {itinerarie.price}</small></p>
+                        <div className="col-md-8">
+                            <div  className="card-body">
+                                <h5 className="card-title">{itinerarie.name}</h5>
+                                <p className="card-text">{itinerarie.description}</p>
+                                <p className="card-text"><small className="text-muted">Time: {itinerarie.time}</small></p>
+                                <p className="card-text"><small className="text-muted">Price: {itinerarie.price}</small></p>
                             </div>
+                           
                         </div>
+                        <Comments itinerario={itinerarie._id}/>
                     </div>
+                    
                 )
+               
             })
+    
             }
+          
+           
         </div>
     )
 }
