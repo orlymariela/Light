@@ -5,9 +5,11 @@ import axios from "axios"
 import swal from "sweetalert";
 import {actionType,} from "../reducer";
 import { useStateValue } from '../StateProvider';
+import GoogleSignin from "./GoogleSignin";
+
 
 function Signin (){
-    const [{cities}, dispatch]=useStateValue()
+    const [{user}, dispatch]=useStateValue()
 
     async function loginUser(event) {
        
@@ -23,11 +25,14 @@ function Signin (){
 
 
               // displayMessages(response.data)
-             displayMessages(response.data)
+             displayMessages(response.data),
              
-
+             
+            
             )
         function displayMessages(data) {
+            console.log(data)
+
             if(!data.success){
                 swal({
                     title: " Error",
@@ -37,14 +42,23 @@ function Signin (){
                 })
                 
             }
-            else{ swal({
+            else{ 
+               
+                
+                localStorage.setItem("token",data.response.token)
+    
+                swal({
                 title: " Welcome",
                 icon: "success",
                 buttons: "OK"
             })}
-         
+         dispatch({
+                type: actionType.USER,
+                user: data.response
+              })
              
         }
+    console.log(user)
 
     }
 
@@ -60,7 +74,7 @@ function Signin (){
                             <img src={logo}  width={"40px"}/>
                         </div>
                         <h3 className="fw-bold text-center py-5">Hi!</h3>
-                        <form action="#" onSubmit={loginUser}>
+                        <form onSubmit={loginUser}>
                         <div className="mb-4">
                                 <label for="email" className="form-label">E-mail</label>
                                 <input className="form-control" name="email"></input>
@@ -78,6 +92,7 @@ function Signin (){
                         </div>
                             <div className="d-grid">
                                 <button type="submit" className="btn btn-primary">Sing in</button>
+                                <GoogleSignin/>
                             </div>
                         </form>
                     </div>

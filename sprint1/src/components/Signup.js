@@ -14,7 +14,7 @@ function Signup(event) {
             lastname: event.target[1].value,
             email: event.target[2].value,
             password: event.target[3].value,
-            from:"signup"
+            from: "signup"
 
         }
 
@@ -32,8 +32,8 @@ function Signup(event) {
             else if (data.success === false) {
                 swal(data.response)
             }
-            else if(data.success ===true){
-              swal(data.response)
+            else if (data.success === true) {
+                swal(data.response)
             }
         }
 
@@ -76,11 +76,14 @@ function Signup(event) {
                                 <input type="checkbox" className="form-check-input" id="exampleCheck1"></input>
                                 <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
                             </div>
-                            
-                            <button type="submit" value="submit" className="btn btn-primary">SING UP</button>
+                            <button id="buttonSign" type="submit" value="submit" className="btn btn-primary">SING UP</button>
                         </form>
-                        <Facebook/>
-                        <Google/>
+                        <div className="google">
+                            <Google/>
+
+                        </div>
+
+
                     </div>
                 </div>
 

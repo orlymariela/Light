@@ -16,7 +16,7 @@ const validator = (req, res, next) => {
             "string.email": "Invalid mail format",
             
         }),
-        password:joi. string().max(20).min(6).trim().pattern( new  RegExp("[a-zA-Z0-9]")).required().messages({
+        password:joi. string().max(30).min(6).trim().pattern( new  RegExp("[a-zA-Z0-9]")).required().messages({
             "string.min": "The password must have at least 6 characters",
             "string.pattern": "The field password cannot be empty"
         }),

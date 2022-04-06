@@ -48,8 +48,9 @@ function Navbar() {
         <div>
             <nav id="menu" className={colorChange ? 'colorChange navbar fixed-top navbar-expand-lg   colorChange' : 'navbar fixed-top navbar-expand-lg '}>
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="#">
-                        <img src={logo} width={"20px"} /><strong id="titulologo">My Tinerary</strong></a>
+                    <LinkRouter className="tituloLogo" to="/">
+                        <img src={logo} width={"20px"} />
+                        </LinkRouter>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -67,32 +68,23 @@ function Navbar() {
 
                             </li>
                         </ul>
+                     
+                        <div className="btn-group dropstart">
+                            <button type="button" className="btn btn-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img id="user" src={denonym} width={"20px"} />
+                            </button>
+                            <ul className="dropdown-menu">
+                                {!user?
+                            <li><LinkRouter  id="sign" className="dropdown-item" to="/signin"><i className="fas fa-sign-in-alt"></i>SIGN IN</LinkRouter></li>
+                                :
+                                <li><LinkRouter className="dropdown-item " onClick={() => cerrarSesion()} to="/">Sign Out<i className="fas fa-sign-in-alt"></i></LinkRouter></li>
+                                }
+                                <li><LinkRouter id="sign" className="dropdown-item" to="/signup"><i  className="fas fa-user-plus"></i>SIGN UP</LinkRouter></li>
+                            </ul>
+                        </div>
+
                         
-                            <div className="dropdown icon-login">
-                                <button type="button" className="btn btn bg-transparent dropdown" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <i className="fas fa-users"></i>
-                                </button>
-                                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><LinkRouter className="dropdown-item" to="/signin"><i className="fas fa-sign-in-alt"></i>Sign In</LinkRouter></li>
-                                    <li><LinkRouter className="dropdown-item" to="/signup"><i className="fas fa-user-plus"></i>Sign Up</LinkRouter></li>
-                                </ul>
-                            </div>
-                            
-                            
 
-                            <div className="dropdown icon-login">
-                                <button type="button" className="btn btn bg-transparent dropdown" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <img id="linkUser" src={denonym} width={"20px"} />
-                                </button>
-                                <ul className="dropdown-menu " aria-labelledby="dropdownMenuButton1">
-                                    <li><LinkRouter className="dropdown-item " onClick={() => cerrarSesion()} to="/">Sign Out<i className="fas fa-sign-in-alt"></i></LinkRouter></li>
-
-                                </ul>
-
-                            </div>
-                        
                     </div>
                 </div>
             </nav>

@@ -10,10 +10,10 @@ function Google(){
     console.log(response);
 
     const NuevoUsuario = {
-      firstname: response.name,
-      lastname: "Google",
-      email: response.email,
-      password: response.id,
+      firstname: response.profileObj.givenName,
+      lastname:  response.profileObj.familyName,
+      email: response.profileObj.email,
+      password: response.profileObj.googleId,
       from:"google"
 
   }
@@ -42,7 +42,7 @@ function Google(){
 
 <GoogleLogin
     clientId="293929888410-b26joi5lhf0u85aeh6np66bta11nb9tg.apps.googleusercontent.com"
-    buttonText="Login"
+    buttonText="Login with Google"
     onSuccess={responseGoogle}
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}
