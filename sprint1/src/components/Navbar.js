@@ -49,7 +49,7 @@ function Navbar() {
             <nav id="menu" className={colorChange ? 'colorChange navbar fixed-top navbar-expand-lg   colorChange' : 'navbar fixed-top navbar-expand-lg '}>
                 <div className="container-fluid">
                     <LinkRouter className="tituloLogo" to="/">
-                        <img src={logo} width={"20px"} />
+                        <img src={logo} width={"25px"} />
                         </LinkRouter>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>

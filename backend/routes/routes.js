@@ -4,6 +4,8 @@ const {ObtenerLosDatos , ObtenerItinerary}= datosController
 const usersController = require("../controllers/userscontroller")
 const {nuevoUsuario, accesoUsuario, verifyEmail, cerrarSesion}= usersController
 const validator = require("../controllers/validator")
+const commentsControllers = require("../controllers/commentscontrollers")
+const {cargaComentario, obtenerComentario, borrarComentario, modificarComentario} = commentsControllers
 
 
 
@@ -23,7 +25,21 @@ Router.route("/signout")
 .post(cerrarSesion),
 
 Router.route("/verify/:uniqueText")
-.get(verifyEmail)
+.get(verifyEmail),
+
+
+Router.route("/comments")
+.post(cargaComentario),
+
+Router.route("/comments/:id")
+.get(obtenerComentario)
+.delete(borrarComentario)
+.put(modificarComentario)
+
+
+
+
+
 module.exports = Router
 
 

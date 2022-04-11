@@ -6,6 +6,9 @@ function Itinerary(props) {
     console.log(props)
     const itinerary = props.itineraries
     console.log(itinerary)
+
+
+    
     return (
         <div>
             <div className="row">

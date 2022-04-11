@@ -18,12 +18,16 @@ function City() {
 
     const { id } = useParams()
     const cityselecter = cities.filter(city => city._id == id)
+    useEffect(() =>{
+        window.scroll(0,0);
+    }, []);
     useEffect(() => {
         cityselecter.map(city =>
             axios.get(`http://localhost:4000/api/itinerary/${city.name}`)
                 .then(response => setItineraries(response.data.response.itinerary))
         )
     }, []);
+    
     console.log(itineraries)
 
     return (
