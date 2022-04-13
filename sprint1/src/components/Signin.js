@@ -54,7 +54,7 @@ function Signin (){
             })}
          dispatch({
                 type: actionType.USER,
-                user: data.response
+                user: data
               })
              
         }

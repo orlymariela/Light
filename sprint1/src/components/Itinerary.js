@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link as LinkRouter, useParams } from "react-router-dom";
 import Comments from "./Comments";
+import axios from "axios";
+
 
 function Itinerary(props) {
-    console.log(props)
-    const itinerary = props.itineraries
-    console.log(itinerary)
-
-
+    const city = props.city
+    const [itineraries, setItineraries] = useState([])
+    useEffect(() => {
+        city.map(city =>
+            axios.get(`http://localhost:4000/api/itinerary/${city.name}`)
+                .then(response => setItineraries(response.data.response.itinerary))
+        )
+    }, []);
     
     return (
         <div>
@@ -16,12 +21,12 @@ function Itinerary(props) {
                     <p id="itinerary">WHAT CAN WE DO IN HERE?</p>
                 </div>
             </div>
-            {itinerary.map((itinerarie) => {
+            {itineraries.map((itinerarie) => {
                 return (
                     <div id="cardItinerary" className="card mb-12" style={{ maxWidth: "550px" }}>
                         <div className="row g-0">
                             <div className="col-md-4">
-                                <img classNameName="" src={process.env.PUBLIC_URL + `/cards/${itinerarie.img}`} alt={itinerarie.name} />
+                                <img className="" src={process.env.PUBLIC_URL + `/cards/${itinerarie.img}`} alt={itinerarie.name} />
                             </div>
                         </div>
                         <div className="col-md-8">

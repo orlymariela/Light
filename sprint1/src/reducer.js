@@ -19,12 +19,12 @@ const reducer=(state,action)=>{
         case "ITINERARIES":
             return{
                 ...state,
-                itineraries: action.itineraries
+                itineraries:action.itineraries
             }
             case "USER":
             return{
                 ...state,
-                user: action.user
+                user:action.user
             }
         default: return state
     }

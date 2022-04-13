@@ -22,7 +22,8 @@ function Navbar() {
 
 
     async function cerrarSesion() {
-        const email = user.datosUser.email
+        const email = user.response.datosUser.email
+        console.log(user)
 
         await axios.post("http://localhost:4000/api/signout", { email })
             .then(response => {

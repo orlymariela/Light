@@ -129,7 +129,7 @@ const usersController = {
                     let passwordMatch = bcryptjs.compareSync(password, usuario.password)
 
                     if (passwordMatch) {
-                        const token = await jwt.sign({ ...usuario }, process.env.SECRETKEY) //secretkey, variable de entorno
+                        //secretkey, variable de entorno
                         const datosUser = {
                             firstname: usuario.firstname,
                             lastname: usuario.lastname,
@@ -139,6 +139,7 @@ const usersController = {
                         }
                         usuario.connected=true
                         await usuario.save()
+                        const token = await jwt.sign({ ...datosUser }, process.env.SECRETKEY, {expiresIn:60*60*24})
                         res.json({ success: true, from: "controller", response: { token, datosUser } })
                     }
                     else {

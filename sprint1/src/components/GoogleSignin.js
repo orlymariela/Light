@@ -2,12 +2,17 @@ import React from "react";
 import GoogleLogin from 'react-google-login';
 import axios from "axios";
 import swal from "sweetalert";
+import {actionType,} from "../reducer";
+import { useStateValue } from '../StateProvider';
 
 
 function GoogleSignin(){
+  const [{user}, dispatch]= useStateValue()
     
   const responseGoogle = async (response) => {
     console.log(response);
+    
+
 
     const userData = {
         email: response.profileObj.email,
@@ -35,18 +40,22 @@ function GoogleSignin(){
                 icon: "error",
                 text: data.error,
                 buttons: "OK"
-            })
-            
+            })            
         }
         else{ 
             console.log(data.response.token)
             localStorage.setItem("token",data.response.token)
-
             swal({
             title: " Welcome",
             icon: "success",
             buttons: "OK"
-        })}
+        })
+        dispatch({
+          type: actionType.USER,
+          user: data
+        })
+      
+      }
      
          
     }

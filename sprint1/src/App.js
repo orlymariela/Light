@@ -14,7 +14,9 @@ import City from "./components/City";
 import axios from "axios";
 
 function App() {
-  const [{cities}, dispatch]=useStateValue()
+  const [{cities }, dispatch]=useStateValue()
+  
+  
   useEffect(() => {
 
     axios.get("http://localhost:4000/api/datos")
@@ -25,7 +27,6 @@ function App() {
         })
       })
   }, [])
-
   return (
     <BrowserRouter>
       <Navbar />

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useStateValue } from "../StateProvider";
 import { Link as LinkRouter, useParams } from "react-router-dom";
-import axios from "axios";
 import Itinerary from "./Itinerary";
 import country from "./assets/img/country.png";
 import continent from "./assets/img/continent.png";
@@ -13,25 +12,18 @@ import Comments from "./Comments";
 
 
 function City() {
-    const [itineraries, setItineraries] = useState([])
     const [{ cities }, dispatch] = useStateValue();
 
     const { id } = useParams()
-    const cityselecter = cities.filter(city => city._id == id)
+    const cityselecter = cities.filter(city => city._id === id)
     useEffect(() =>{
         window.scroll(0,0);
-    }, []);
-    useEffect(() => {
-        cityselecter.map(city =>
-            axios.get(`http://localhost:4000/api/itinerary/${city.name}`)
-                .then(response => setItineraries(response.data.response.itinerary))
-        )
-    }, []);
+    }, []);    
     
-    console.log(itineraries)
-
     return (
-        <div>
+        <>
+        {cityselecter.length>0?
+         <div>
             <img className="imgCity" src={process.env.PUBLIC_URL + `/cards/cities/${cityselecter[0].img}`} alt={cityselecter.name} />
             <div className="content text-center">
                 <h1 id="tituloCity" className="text">{cityselecter[0].name}</h1>
@@ -101,9 +93,9 @@ function City() {
 
             </div>
 
-            <Itinerary itineraries={itineraries} />
+            <Itinerary city={cityselecter} />
            
-        </div>
+        </div>:""}</>
 
 
 
