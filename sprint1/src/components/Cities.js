@@ -3,11 +3,13 @@ import icon1 from "./assets/img/icon1.png";
 import icon2 from "./assets/img/icon2.png";
 import icon3 from "./assets/img/icon3.png"
 import { useStateValue } from "../StateProvider";
-import { Link as LinkRouter } from "react-router-dom"
+import { Link as LinkRouter } from "react-router-dom";
+import Search from "./Search";
+
 
 function Cities() {
 
-    const [{ cities }, dispatch] = useStateValue()
+    const [{ filterCity }, dispatch] = useStateValue()
     useEffect(() => {
         window.scroll(0, 0);
     }, []);
@@ -46,19 +48,13 @@ function Cities() {
                     </div>
                     <svg className="block-itinerary-contributions__divider" width="116" height="4" viewBox="0 0 116 4" xmlns="http://www.w3.org/2000/svg"><path d="M116 1.5h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0h-2v1h2v-1zm-6 0H6v1h2v-1zm-6 1H0v-1h2v1zM60 2a2 2 0 11-4 0 2 2 0 014 0z" fill="#FC6220" fillRule="nonzero"></path></svg>
                 </div>
-                <div className="col-sm-6 col-md-6 d-flex mx-auto my-5">
-                    <input type="text" id="filtroBusqueda" placeholder="Discover your city" className="form-control selector"></input>
-                    <button type="button" className="btn" id="boton"><svg id="lupa" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                    </svg></button>
-                </div>
-
-
+                <Search/>
             </div>
+            
             <div className="prueba">
                 <div className="row">
-                    {cities.length > 0 ?
-                        cities.map((ciudad) => {
+                    {filterCity.length > 0 ?
+                        filterCity?.map((ciudad) => {
                             return (
 
                                 <div id="cardcity" className="card col-3" >
@@ -68,7 +64,7 @@ function Cities() {
                                         <p id="textCountry" className="card-text"> {ciudad.country}</p>
                                     </div>
                                     <div id="cardinteraciones" className="card-body">
-                                        <h5 className="card-title">{cities.name}</h5>
+                                        <h5 className="card-title">{ciudad.name}</h5>
                                         <LinkRouter to={`/city/${ciudad._id}`} className="btn btn-primary">
                                             Read more...
                                         </LinkRouter>
