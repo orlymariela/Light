@@ -1,7 +1,7 @@
 const Router = require("express").Router();
 const passport = require ("../config/passport")
 const datosController = require("../controllers/datoscontrollers") 
-const {ObtenerLosDatos , ObtenerItinerary}= datosController
+const {ObtenerLosDatos , ObtenerItinerary, likeDislike}= datosController
 const usersController = require("../controllers/userscontroller")
 const {nuevoUsuario, accesoUsuario, verifyEmail, cerrarSesion,  verificarToken }= usersController
 const validator = require("../controllers/validator")
@@ -28,7 +28,6 @@ Router.route("/signout")
 Router.route("/verify/:uniqueText")
 .get(verifyEmail),
 
-
 Router.route("/comments")
 .post(cargaComentario),
 
@@ -37,8 +36,11 @@ Router.route("/comments/:id")
 .delete(borrarComentario)
 .put(modificarComentario),
 
-Router.route("signinToken")
+Router.route("/signinToken")
 .get(passport.authenticate("jwt", {session:false}), verificarToken),
+
+Router.route("/likeDislike/:id")
+.put(passport.authenticate("jwt", {session:false}), likeDislike)
 
 
 

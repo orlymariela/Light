@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link as LinkRouter, useParams } from "react-router-dom";
 import Comments from "./Comments";
 import axios from "axios";
+import Like from "./Like"
 
 
-function Itinerary(props) {
+const Itinerary = (props) => {
     const city = props.city
     const [itineraries, setItineraries] = useState([])
     useEffect(() => {
@@ -36,7 +37,7 @@ function Itinerary(props) {
                                 <p className="card-text"><small className="text-muted">Time: {itinerarie.time}</small></p>
                                 <p className="card-text"><small className="text-muted">Price: {itinerarie.price}</small></p>
                             </div>
-                           
+                           <Like likes={itinerarie.likes} id={itinerarie._id}/>
                         </div>
                         <Comments itinerario={itinerarie._id}/>
                     </div>

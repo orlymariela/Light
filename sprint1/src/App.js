@@ -14,7 +14,7 @@ import City from "./components/City";
 import axios from "axios";
 
 function App() {
-  const [{cities }, dispatch]=useStateValue()
+  const [{cities, user }, dispatch]=useStateValue()
   
   
   useEffect(() => {
@@ -30,28 +30,26 @@ function App() {
 
         const token= localStorage.getItem("token")
           
-          axios.get("https://localhost:4000/api/signinToken",{
+          axios.get("http://localhost:4000/api/signinToken",{
           headers:{
-            'Authorization':'Bearer '+token
+            'Authorization': 'Bearer '+token
           }
         })
         .then(user=> { 
         if (user.data.success) {
           console.log(user)
-
-          //dispatch({
-            //type:actionType.USER,
-           // user: user.response.datosUser
-          //})
+          dispatch({
+            type:actionType.USER,
+           user: user.data.datosUser
+          })
           
         }else {
           localStorage.removeItem("token")
         }
       })
       }
-
-
   }, [])
+  console.log(user)
   return (
     <BrowserRouter>
       <Navbar />

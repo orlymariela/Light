@@ -7,6 +7,7 @@ const itinerarySchema = new mongoose.Schema({
     price: {type: String, require:true},
     time: {type: String, require:true},
     img: {type: String, require:true},
+    like: {type: Array},
 
 })
 const Itinerary = mongoose.model("itinerary", itinerarySchema)
