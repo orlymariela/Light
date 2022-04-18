@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 const usersSchema = new mongoose.Schema({
-
+    
+    imguser:{type:String},
     firstname: {type: String, require:true},
     lastname: {type: String, require:false},
     email: {type: String, require:true},

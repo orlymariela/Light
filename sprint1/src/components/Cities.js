@@ -63,8 +63,7 @@ function Cities() {
                                         <h5 id="topCity" className="card-title text-center"> {ciudad.name}</h5>
                                         <p id="textCountry" className="card-text"> {ciudad.country}</p>
                                     </div>
-                                    <div id="cardinteraciones" className="card-body">
-                                        <h5 className="card-title">{ciudad.name}</h5>
+                                    <div id="cardinteraciones" className="card-body">                                        
                                         <LinkRouter to={`/city/${ciudad._id}`} className="btn btn-primary">
                                             Read more...
                                         </LinkRouter>

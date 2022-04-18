@@ -57,7 +57,7 @@ const commentsControllers = {
             console.log(error)
             
         }
-        res.json({success:true, response:{comentario}, mensage:"Your comment has been deleted"})
+        res.json({success:true, response:{comentario}, message:"Your comment has been deleted"})
     
     },
 
@@ -78,7 +78,7 @@ const commentsControllers = {
             
         }
 
-        res.json({success:true, response:{comentario}, mensage:"Your comment has been modified"})
+        res.json({success:true, response:{comentario}, message:"Your comment has been modified"})
     
 
     }

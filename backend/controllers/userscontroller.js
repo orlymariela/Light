@@ -29,7 +29,23 @@ async function sendEmail(email, uniqueText) {
         from: sender,
         to: email,
         subject: "User email verification",
-        html: `Click <a href=http://localhost:4000/api/verify/${uniqueText}> here </a> to validate your email`,
+        html:  `
+        <div style="width:300px; margin: auto; ">
+            <div style=" width:300px;height: 200px;margin:auto;box-shadow: 0px -1px 5px 6px rgba(201,247,254,1); padding: 5px; background: #283a2c;
+                clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);border-radius: 2rem;">
+                <h1 style="color: #fff; font-family: "Wulkan Display Medium",serif; font-size: 40px; text-align: center;">
+                    MyTinerary
+                </h1>
+                <h2 style="color: #fff; font-size: 20px;text-align: center;">Validate your e-mail</h2>
+            </div>
+            <div style="text-align: center; margin-top:20px">
+               
+                    <a href=http://localhost:4000/api/verify/${uniqueText} style="width:100px; height:50px; padding: 10px; border-radius: 2rem; background:#096684; color: white; font-size: 15px; text-decoration: none; ">Click Here</a>
+            </div>
+            <h6 style="color: #283a2c; font-size: 12px;text-align: center;">All Rights Reserved Copyright - 2022</h6>
+        </div>
+    `,
+        
     }
     await transporter.sendMail(mailOptions, function (error, response) {
         if (error) {
@@ -163,7 +179,24 @@ const usersController = {
         usuario.connected = false
         await usuario.save()
         res.json({ success: true, response: "Log Out" })
-    }
+    },
+    
+    verificarToken: async(req, res)=>{
+        //console.log(req)
+        if (!req.error) {
+            res.json({success:true,
+                datosUser:{
+                imguser:req.user.imguser,
+                firstname:req.user.firstname,
+                lastname:req.user.lastname,
+                email:req.user.email,
+                id: req.user.id },
+                response: "Welcome Back " + req.user.firstname}) //Datos como llegan del payload
+            
+        }else{
+            res.json({success:false, response:" Please sign again"})
+        }
+    },
 }
 module.exports = usersController;
 

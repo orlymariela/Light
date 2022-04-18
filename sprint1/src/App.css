@@ -416,14 +416,6 @@ a:hover {
   color: #fff;
 }
 
-.kep-login-facebook{
-  
-  width: 45vh;
-  height: 7vh;
-  padding: 0;
-  font-size: small;
-  margin-left: 2vh;
-}
 #buttonSign{
   width: 100%;
   
@@ -434,3 +426,8 @@ a:hover {
   flex-direction: row;
   text-align: center;
 }   
+
+#comentario-user-tex{
+  border-color: #fff;
+  background-color: #fff;
+}

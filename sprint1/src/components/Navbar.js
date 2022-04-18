@@ -5,6 +5,7 @@ import denonym from "./assets/img/denonym.png"
 import { actionType } from "../reducer";
 import axios from 'axios';
 import { useStateValue } from "../StateProvider";
+import swal from "sweetalert";
 
 function Navbar() {
     const [{ user }, dispatch] = useStateValue()
@@ -35,13 +36,13 @@ function Navbar() {
                         user: null
                     })
                 }
-
-                alert(response.data.response)
-
+                    swal({
+                        title: "Good Bye",
+                        icon: "error",
+                        text: response.data.response,
+                        buttons: "OK"
+                    })                
             })
-
-
-
     }
 
 
@@ -51,7 +52,7 @@ function Navbar() {
                 <div className="container-fluid">
                     <LinkRouter className="tituloLogo" to="/">
                         <img src={logo} width={"25px"} />
-                        </LinkRouter>
+                    </LinkRouter>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -69,22 +70,22 @@ function Navbar() {
 
                             </li>
                         </ul>
-                     
+
                         <div className="btn-group dropstart">
                             <button type="button" className="btn btn-transparent dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img id="user" src={denonym} width={"20px"} />
+                                <img id="user" src={denonym} width={"20px"} />
                             </button>
                             <ul className="dropdown-menu">
-                                {!user?
-                            <li><LinkRouter  id="sign" className="dropdown-item" to="/signin"><i className="fas fa-sign-in-alt"></i>SIGN IN</LinkRouter></li>
-                                :
-                                <li><LinkRouter className="dropdown-item " onClick={() => cerrarSesion()} to="/">Sign Out<i className="fas fa-sign-in-alt"></i></LinkRouter></li>
+                                {!user ?
+                                    <li><LinkRouter id="sign" className="dropdown-item" to="/signin"><i className="fas fa-sign-in-alt"></i>SIGN IN</LinkRouter></li>
+                                    :
+                                    <li><LinkRouter className="dropdown-item " onClick={() => cerrarSesion()} to="/">SIGN OUT<i className="fas fa-sign-in-alt"></i></LinkRouter></li>
                                 }
-                                <li><LinkRouter id="sign" className="dropdown-item" to="/signup"><i  className="fas fa-user-plus"></i>SIGN UP</LinkRouter></li>
+                                <li><LinkRouter id="sign" className="dropdown-item" to="/signup"><i className="fas fa-user-plus"></i>SIGN UP</LinkRouter></li>
                             </ul>
                         </div>
 
-                        
+
 
                     </div>
                 </div>

@@ -26,6 +26,31 @@ function App() {
           cities: response.data.response.cities
         })
       })
+      if (localStorage.getItem("token")!==null) {
+
+        const token= localStorage.getItem("token")
+          
+          axios.get("https://localhost:4000/api/signinToken",{
+          headers:{
+            'Authorization':'Bearer '+token
+          }
+        })
+        .then(user=> { 
+        if (user.data.success) {
+          console.log(user)
+
+          //dispatch({
+            //type:actionType.USER,
+           // user: user.response.datosUser
+          //})
+          
+        }else {
+          localStorage.removeItem("token")
+        }
+      })
+      }
+
+
   }, [])
   return (
     <BrowserRouter>
