@@ -90,7 +90,7 @@ const Comments = (props) => {
                                         </div>
                                         <div className="col-10">
                                             <h5>{item.user.firstname + " " + item.user.lastname}</h5>
-                                            {user?.response.datosUser.id === item.user._id ?
+                                            {user?.id === item.user._id ?
                                                 <div>
                                                     <div className="row">
                                                         <div className="col-6">

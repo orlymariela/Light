@@ -51,21 +51,21 @@ likeDislike: async (req, res) => {
 
     console.log(id)
     console.log(user)
-    let itinerary
+    let itinerary 
 
     try {
         itinerary= await Itinerary.findOne({_id:id})
 
-        if (itinerary.likes.includes(user)) {
+        if (itinerary.like.includes(user)) {
 
-            Itinerary.findOneAndUpdate({_id:id}, {$pull:{likes:user}}, {new:true} )
-            .then(response=>res.json({success:true, response:response.likes}))
+            Itinerary.findOneAndUpdate({_id:id}, {$pull:{like:user}}, {new:true} )
+            .then(response=>res.json({success:true, response:response.like}))
 
             .catch(error=>console.log(error))
             
         }else{
-            Itinerary.findOneAndUpdate({_id:id}, {$push:{likes:user}}, {new:true} )
-            .then(response=>res.json({success:true, response:response.likes}))
+            Itinerary.findOneAndUpdate({_id:id}, {$push:{like:user}}, {new:true} )
+            .then(response=>res.json({success:true, response:response.like}))
 
             .catch(error=>console.log(error))
             

@@ -37,7 +37,7 @@ const Itinerary = (props) => {
                                 <p className="card-text"><small className="text-muted">Time: {itinerarie.time}</small></p>
                                 <p className="card-text"><small className="text-muted">Price: {itinerarie.price}</small></p>
                             </div>
-                           <Like likes={itinerarie.likes} id={itinerarie._id}/>
+                          <Like likes={itinerarie.like} id={itinerarie._id}/>
                         </div>
                         <Comments itinerario={itinerarie._id}/>
                     </div>

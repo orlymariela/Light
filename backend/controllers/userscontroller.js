@@ -177,6 +177,7 @@ const usersController = {
         const email = req.body.email
         const usuario = await User.findOne({ email })
         usuario.connected = false
+        console.log(usuario)
         await usuario.save()
         res.json({ success: true, response: "Log Out" })
     },

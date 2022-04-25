@@ -7,29 +7,29 @@ import { useStateValue } from "../StateProvider";
 const Likes = (props) => {
 
     const [{ user }, dispatch] = useStateValue();
-    const [likes, setLikes] = useState(props.like);
+    const [likes, setLikes] = useState(props.likes);
 
     console.log(props)
 
     const likeDislike = async () => {
         const token = localStorage.getItem("token")
         
-        await axios.put(`http://localhost:4000/api/likeDislike:id/${props.id}`, {}, {
+        await axios.put(`http://localhost:4000/api/likeDislike/${props.id}`, {}, {
             headers: {
-                'Authorization': 'Bearer ' + token
+                'Authorization':'Bearer ' + token
             }
         })
             .then(response => setLikes(response.data.response))
     }
 
-
-    const colorheart = likes?.includes(user?.datosUser.id) ? (
+     console.log(user)
+    const colorheart = likes?.includes(user?.id) ? (
         <span>
-            <img src={like2} className="icobut btn d-block w-100" alt="..." />
+            <img src={like1} className="icobut btn d-block w-100" alt="..." />
         </span>
     ) : (
         <span>
-            <img src={like1} className="icobut btn d-block w-100" alt="..." />
+            <img src={like2} className="icobut btn d-block w-100" alt="..." />
         </span>
     )
 
