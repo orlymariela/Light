@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cors())
 app.use(passport.initialize())
 app.use("/api",Router)
-if(proccess.env.NODE_ENV=== "production"){
+if(process.env.NODE_ENV=== "production"){
     app.use(express.static("client/build"))
     app.get("*",(req,res)=>{
         res.sendFile(path.join(__dirname+"/client/build/index.html"))
