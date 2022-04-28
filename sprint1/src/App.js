@@ -10,7 +10,7 @@ import Signin from './components/Signin';
 import Cities from './components/Cities';
 import Signup from './components/Signup';
 import Carousel from 'react-multi-carousel';
-import City from "./components/City";
+import City from "./components/city";
 import axios from "axios";
 
 function App() {
