@@ -10,7 +10,7 @@ const Itinerary = (props) => {
     const [itineraries, setItineraries] = useState([])
     useEffect(() => {
         city.map(city =>
-            axios.get(`http://localhost:4000/api/itinerary/${city.name}`)
+            axios.get(`https://mytinerary-orlysantiago.herokuapp.com/api/itinerary/${city.name}`)
                 .then(response => setItineraries(response.data.response.itinerary))
         )
     }, []);
@@ -37,7 +37,15 @@ const Itinerary = (props) => {
                                 <p className="card-text"><small className="text-muted">Time: {itinerarie.time}</small></p>
                                 <p className="card-text"><small className="text-muted">Price: {itinerarie.price}</small></p>
                             </div>
-                          <Like likes={itinerarie.like} id={itinerarie._id}/>
+                            <div className="row">
+                                <div className="col-6"></div>
+                                <div className="col-6"></div>
+                                <div className="col-4">
+                                <Like likes={itinerarie.like} id={itinerarie._id}/>
+                                </div>
+
+                            </div>
+                         
                         </div>
                         <Comments itinerario={itinerarie._id}/>
                     </div>

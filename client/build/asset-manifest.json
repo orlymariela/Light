@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.659dc6ac.css",
+    "main.js": "/static/js/main.6bb9086e.js",
+    "static/js/787.1ad3638d.chunk.js": "/static/js/787.1ad3638d.chunk.js",
+    "static/media/granca.jpg": "/static/media/granca.f46739c92a18463f84ed.jpg",
+    "static/media/banner2.jpg": "/static/media/banner2.8de7dbdd82c5ee3ee8f2.jpg",
+    "static/media/banner.jpg": "/static/media/banner.4fab32df4f5ddc895b7c.jpg",
+    "static/media/london.jpg": "/static/media/london.914eae1c82dd80aa03b5.jpg",
+    "static/media/nys.jpg": "/static/media/nys.2332cf9ff4d1b689cfe0.jpg",
+    "static/media/logo.png": "/static/media/logo.ea3d3e493081247433f2.png",
+    "static/media/icon1.png": "/static/media/icon1.677b65a52893068b9790.png",
+    "static/media/icon3.png": "/static/media/icon3.1d5d1300c2548e992d2b.png",
+    "static/media/like2.png": "/static/media/like2.f8cf0e43a6fe19c74cff.png",
+    "static/media/icon2.png": "/static/media/icon2.d51fccec9d012cb3b067.png",
+    "static/media/region.png": "/static/media/region.550147f8207fd4380a50.png",
+    "static/media/like1.png": "/static/media/like1.d3565c76622c58df3cc9.png",
+    "static/media/continent.png": "/static/media/continent.04d0d4c044f2dabd4b81.png",
+    "static/media/revicons.eot": "/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/static/media/revicons.57fd05d4ae650374c8de.ttf",
+    "static/media/revicons.woff": "/static/media/revicons.e8746a624ed098489406.woff",
+    "index.html": "/index.html",
+    "main.659dc6ac.css.map": "/static/css/main.659dc6ac.css.map",
+    "main.6bb9086e.js.map": "/static/js/main.6bb9086e.js.map",
+    "787.1ad3638d.chunk.js.map": "/static/js/787.1ad3638d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.659dc6ac.css",
+    "static/js/main.6bb9086e.js"
+  ]
+}

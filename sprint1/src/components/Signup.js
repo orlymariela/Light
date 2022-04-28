@@ -18,7 +18,7 @@ function Signup(event) {
 
         }
 
-        await axios.post("http://localhost:4000/api/signup", { NuevoUsuario })
+        await axios.post("https://mytinerary-orlysantiago.herokuapp.com/api/signup", { NuevoUsuario })
             .then(response => {
 
                 displayMessages(response.data)
